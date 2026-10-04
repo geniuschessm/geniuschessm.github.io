@@ -8,12 +8,15 @@
   // Genius Chess бодлогын номын QR код энд ирээд хариуны хуудас руу шилжинэ.
   // Хариуны хуудас өөрчлөгдвөл зөвхөн доорх TARGET хаягийг солино.
   var TARGET = "https://claude.ai/artifact/P1QXtnmvwgudAiPFHkFdx8";
-  location.replace(TARGET + location.hash);
+  var h = location.hash;
+  var m = location.pathname.match(/\/(g\d-\d+)/i);
+  if (m) h = "#" + m[1].toLowerCase();
+  location.replace(TARGET + h);
 </script>
 <style>body{font-family:system-ui,sans-serif;background:#0D0C0A;color:#EFE6D4;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;text-align:center;padding:24px}a{color:#C2A26A}</style>
 </head>
 <body>
 <p>Genius Chess · Хариу нээгдэж байна…<br><br><a id="l" href="https://claude.ai/artifact/P1QXtnmvwgudAiPFHkFdx8">Энд дарж нээнэ үү</a></p>
-<script>document.getElementById('l').href = TARGET + location.hash;</script>
+<script>document.getElementById('l').href = TARGET + h;</script>
 </body>
 </html>
